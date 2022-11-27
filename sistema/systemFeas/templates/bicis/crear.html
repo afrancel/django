@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block titulo %} Agregar Bicicleta | Bienvenid@ {% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Crear una nueva Bicicleta
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de la bicicleta</h4>
+        {% include 'bicis/form.html' %}
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>
+{% endblock %}

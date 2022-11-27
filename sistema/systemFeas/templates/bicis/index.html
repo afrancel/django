@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block titulo %} Lista de bicicletas | Bienvenid@ {% endblock %}
+{% block content %}
+
+    <div class="card">
+        <div class="card-header">
+            Listar Bicicletas <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar nueva Bicicleta</a>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Bicicletas</h4>
+
+            <div class="table-responsive">
+                <table class="table table-primary">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Imagen</th>                            
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Acciones</th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for bicicleta in bicis %}
+                        <tr>
+                        <tr class="">
+                            <td>{{ bicicleta.id }}</td>
+                            <td>{{ bicicleta.titulo }}</td>
+                            <td>
+                            <img src="{{ bicicleta.imagen.url }}" height="100px" alt="">
+                            </td>
+                            <td>{{ bicicleta.descripcion }}</td>                            
+                            <td>
+                                <a name="" id="" class="btn btn-info" href="{% url 'editar' bicicleta.id %}" role="button">Editar</a>
+                                |
+                                <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' bicicleta.id %}" role="button">Borrar</a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+            
+            
+        </div>
+        <div class="card-footer text-muted">
+            Pie de pagina
+        </div>
+    </div>
+
+{% endblock %}
